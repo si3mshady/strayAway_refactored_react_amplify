@@ -14,8 +14,7 @@ const initialLocationState = {
 export default function ButtonContainer({imgRef}) {
     const [gps, setGPS] = React.useState([initialLocationState]) // uses an array of dictionaries 
     const [clicked, setButtonClicked ] = React.useState(false)
-    const [gpsHistory, updateGPSHistory] =  React.useState([...gps]) // spread operator only works on iterables 
-    // const [displayImage, setDisplayImage] = React.useState(false)
+    const [gpsHistory, updateGPSHistory] =  React.useState([...gps]) // spread operator only works on iterables    
     const handleGeoLocation = (event) => {
 
         setGPS([{ latitude:event.coords.latitude,  longitude:event.coords.longitude,
@@ -47,8 +46,7 @@ export default function ButtonContainer({imgRef}) {
 
     const getImage = (event) => {
         $("#camera").on("change", (event) => {
-            if (event.target.files[0] !== null) {
-                // setDisplayImage(true)               
+            if (event.target.files[0] !== null) {                           
                 imgRef.current.src = window.URL.createObjectURL(event.target.files[0]) 
                 }  } ) }
 
@@ -72,11 +70,7 @@ export default function ButtonContainer({imgRef}) {
                         </button>
                 </div>   
 
-                <div>
-                        {/* <button className="containerButtons__row--col"
-                         onClick={()=> { setButtonClicked(!clicked); trackHistory() }}>Get GPS Location</button> */}
-
-                </div>    
+              
             
             </div>            
             <MiniDisplay gps={gps} />
