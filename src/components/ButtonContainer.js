@@ -69,9 +69,7 @@ export default function ButtonContainer({imgRef}) {
                         
                         </button>
                 </div>   
-
-              
-            
+           
             </div>            
             <MiniDisplay gps={gps} />
         </div>
