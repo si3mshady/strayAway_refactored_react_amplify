@@ -1,0 +1,218 @@
+// https://fontawesome.com/icons/directions?style=solid
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+// Colors
+$green-shade-1: #b3f542;
+$green-shade-2: green;
+$dark-crimson-1: #402929;
+// Grid colors
+$grid-max-width: 100%; // max-width
+$gutter-vertical: 3rem;
+$gutter-horizontal: 2rem;
+
+@mixin clearfix {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+//https://cssgradient.io/
+.mainframe {
+
+    width: 55vh;
+    height: 99vh;
+    border-radius: 10px;
+    text-align: center;    
+    background-color: $dark-crimson-1;    
+    box-shadow:  0 10px 20px rgba(#000,.8);
+    padding-top: 1%;
+
+    [class^="main" ] {
+        box-shadow:  0 10px 20px rgba(#000,.82);
+        width: 95%;
+        border-radius: 10px;
+        text-align: center;
+        padding: 1%;
+    }
+
+    &__imageframe {
+        overflow:auto;
+            width:173px;
+            height:55%;
+            background-color: $green-shade-1;
+            box-shadow:  0 10px 20px rgba(#000,.8);
+
+           
+
+        &--image {
+            width: 95%;
+            text-align: center;
+            background-color: $green-shade-2;
+            padding-top: 20%;
+            // width:100%;
+            height:100%;
+
+
+            &img {
+               
+                width: 100%;
+                height: 100%;
+                }
+        }
+
+    }
+    
+
+    
+
+}
+// Lower Display
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+// USE VH to maintain the better persp
+
+
+
+.containerButtons {
+    // box-shadow:  0 10px 20px rgba(#000,.8);
+    margin-top: 10%;
+    height: 33vh;
+    width: 55vh;
+    overflow: auto;
+    
+    &__row {
+        margin: 0 auto;        
+        max-width: $grid-max-width;
+        margin-bottom: $gutter-vertical; 
+        
+        // @include clearfix;
+       
+        &--col {
+            text-align: center;
+                margin-top: 10%;
+                // float: left;                
+                // margin-right: 5px;               
+               
+                width: calc((100% - 12px) / 2);
+                
+              
+                
+                              
+                  
+
+
+                
+
+                & button {
+                    transform: scale3d(1.5, 1.5, 1.5);                    
+                    box-shadow:  0 10px 20px rgba(#000,.82);
+                    width: 15vh;
+                    
+                    border-radius: 11px;
+                    cursor: pointer;                     
+                    background-color:rgb(124, 113, 46);
+                    color: greenyellow;
+
+                    
+                    
+                    
+                    transition: all .3s;
+
+                    &:hover {
+                        
+                        transform: scale3d(2, 2, 2);
+                        transform: scale(1.8);
+                        font-size: larger;
+                        color: greenyellow;
+                        outline:0;
+                        border: none;
+                    }
+                    &:active {
+                        transform: translateY(-2px);
+                         background-color: gold;
+                       
+                    }
+
+                }
+              
+        }
+        
+    }
+
+
+}
+
+.miniDisplay {
+
+    width: 99%;
+
+
+
+
+    &__container {
+        opacity: .6;
+        box-shadow:  0 10px 20px rgba(#000,.82);
+        transform: scale3d(.8, .8, .8);
+        border-radius: 2px;
+        margin: 0 auto;
+        // width: 40vh;
+        // height: 94%;
+        background-color: $green-shade-2;
+        // border-radius: 50px; 
+        // margin-top: 5%;
+        // padding: 3%;
+
+        &--output {
+            
+            box-shadow:  0 10px 20px rgba(#000,.82);
+            transform: scale3d(.8, .8, .8);
+            margin: 0 auto;
+            border-radius: 2px;            
+            background-color: $green-shade-1;
+            transform: scale(.8);
+            width: 90%;
+            height: 90%;
+            color: rgb(77, 68, 23);
+
+            & p {
+                
+                padding: 14px;
+                margin: 12px;
+//                 padding: 14px;
+//                 margin: -86px;
+// }
+               
+               
+            }
+
+        }
+
+    }
+
+
+
+img {                       
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}               
+
+.theGlow::after {
+    background-color: limegreen;
+}
+
+.theGlow:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+}
