@@ -12,8 +12,6 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
 
 
 
-
-
 const initialLocationState = {
     latitude: null,
     longitude: null,
@@ -25,29 +23,15 @@ const initialLocationState = {
 
 export default function ButtonContainer({imgRef}) 
 
-
-
 {
     const fileInput = useRef()
     
     const [gps, setGPS] = React.useState([initialLocationState]) // uses an array of dictionaries 
     const [clicked, setButtonClicked ] = React.useState(false)
     const [gpsHistory, updateGPSHistory] =  React.useState([...gps]) // spread operator only works on iterables        
-    const [currentImage, setCurrentImage ]= React.useState('')
-    const [base64String, setbase64String ]= React.useState(null)
     const [s3Bucket] = React.useState("deployments-si3mshady")
-    
-
-    const [imageBucketParams] = React.useState({
-      Image: {
-       S3Object: {
-        Bucket: s3Bucket, 
-        Name: currentImage.name === null? '': currentImage.name 
-       }
-      }
-     })
+        
    
-
     var rekognition = new AWS.Rekognition()
     
 
@@ -80,9 +64,8 @@ export default function ButtonContainer({imgRef})
   }, [gps])
 
 
-  const analyze_image = (base64Data) => {      
-   const params = {
-      Image: { Bytes: base64Data }}
+  const analyze_image = (bufferedBase64Data) => {      
+   const params = {Image: { Bytes: bufferedBase64Data }}
 
     rekognition.detectLabels(params, function(err, data) {
       if (err) console.log(err); // an error occurred
@@ -99,7 +82,7 @@ export default function ButtonContainer({imgRef})
           const newImageFile = event.target.files[0]
           sendToS3(newImageFile)
           console.log('newImagevariable', newImageFile.name)
-          setCurrentImage(newImageFile.name)
+          
             if (newImageFile !== null) {                           
                 imgRef.current.src = window.URL.createObjectURL(newImageFile) 
                 
@@ -110,36 +93,25 @@ export default function ButtonContainer({imgRef})
           
         }
 
-                    
-  
-
-
-
-
-
-
-
-
-
-
-
-
 const sendToS3 = (data) => {    
     
   var file = data
+  
+  
   var reader = new FileReader();
   reader.onloadend = function() {
     console.log('RESULT', reader.result)   //Try and send to s3
-      
+    
+    
     const bucket = new AWS.S3( { params: {Bucket: s3Bucket} } );
 
-    const buf = new Buffer(reader.result.replace(/^data:image\/\w+;base64,/, ""),'base64')
-    analyze_image(buf)
 
+    const buf =  Buffer.from(reader.result.replace(/^data:image\/\w+;base64,/, ""),'base64')
+    analyze_image(buf) // 
 
     var data = {
 
-      Key: "perfectCircle", 
+      Key: file.name, 
     
       Body: buf,
     
@@ -187,14 +159,12 @@ const sendToS3 = (data) => {
                             <form    action="#" id="form" encType="multipart/form-data">
                                 <input hidden  ref={fileInput} onClick={getImage}
                                 type="file" id="camera" accept="image/*" capture />
-                                </form>
-                         
-                        
+                                </form>                        
                         </button>
                 </div>   
-           
+                <MiniDisplay gps={gps} />
             </div>            
-            <MiniDisplay gps={gps} />
+            
             
         </div>
         
@@ -203,7 +173,7 @@ const sendToS3 = (data) => {
     )
 }
 
-
+//https://stackoverflow.com/questions/52165333/deprecationwarning-buffer-is-deprecated-due-to-security-and-usability-issues/52165509
 //https://reactjs.org/docs/hooks-reference.html#useref
 //https://medium.com/@PhilipAndrews/react-how-to-access-props-in-a-functional-component-6bd4200b9e0b
 //https://aws.amazon.com/blogs/mobile/integrate-the-aws-sdk-for-javascript-into-a-react-app/
