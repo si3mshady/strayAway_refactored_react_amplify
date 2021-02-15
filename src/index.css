@@ -76,32 +76,62 @@ img {
 .miniDisplay {
   width: 99%; }
   .miniDisplay__container {
-    opacity: .6;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.82);
     transform: scale3d(0.8, 0.8, 0.8);
     border-radius: 12px;
     margin: 0 auto;
     background-color: green; }
     .miniDisplay__container--output {
+      perspective: 1000px;
       text-align: left;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.82);
       transform: scale3d(0.8, 0.8, 0.8);
       margin: 0 auto;
       border-radius: 10px;
       background-color: #b3f542;
-      transform: scale(0.8);
       width: 90%;
       height: 90%;
       color: #4d4417; }
+      .miniDisplay__container--output--front {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        backface-visibility: hidden;
+        text-align: left;
+        transform: scale3d(0.8, 0.8, 0.8);
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: #b3f542;
+        color: #4d4417;
+        transition: all .6s; }
+      .miniDisplay__container--output--back {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        backface-visibility: hidden;
+        text-align: left;
+        transform: scale3d(0.8, 0.8, 0.8);
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: red;
+        transform: scale(0.8);
+        color: #b3f542;
+        transition: all .6s;
+        transform: rotateY(180deg); }
+      .miniDisplay__container--output:hover .miniDisplay__container--output--front {
+        transform: rotateY(-180deg); }
+      .miniDisplay__container--output:hover .miniDisplay__container--output--back {
+        transform: rotateY(0);
+        transform: scale3d(0.8, 0.8, 0.8); }
       .miniDisplay__container--output p {
         padding: 14px;
         margin: 12px; }
-  .miniDisplay img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px; }
-  .miniDisplay .theGlow::after {
-    background-color: limegreen; }
-  .miniDisplay .theGlow:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
+    .miniDisplay__container img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px; }
+    .miniDisplay__container .theGlow::after {
+      background-color: limegreen; }
+    .miniDisplay__container .theGlow:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }

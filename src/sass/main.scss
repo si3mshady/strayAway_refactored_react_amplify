@@ -161,12 +161,13 @@ img {
 .miniDisplay {
 
     width: 99%;
+   
 
-
-
+    
 
     &__container {
-        opacity: .6;
+        
+        // opacity: .6;
         box-shadow:  0 10px 20px rgba(#000,.82);
         transform: scale3d(.8, .8, .8);
         border-radius: 12px;
@@ -177,18 +178,84 @@ img {
         // border-radius: 50px; 
         // margin-top: 5%;
         // padding: 3%;
-
+     
+        
         &--output {
+            perspective: 1000px;
+            
+           
             text-align: left;
             box-shadow:  0 10px 20px rgba(#000,.82);
             transform: scale3d(.8, .8, .8);
             margin: 0 auto;
             border-radius: 10px;            
             background-color: $green-shade-1;
-            transform: scale(.8);
+            // transform: scale(.8);
             width: 90%;
             height: 90%;
             color: rgb(77, 68, 23);
+           
+
+            &--front {
+
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            
+            backface-visibility: hidden;
+            text-align: left;
+            // box-shadow:  0 10px 20px rgba(#000,.82);
+            transform: scale3d(.8, .8, .8);
+            margin: 0 auto;
+            border-radius: 10px;            
+            background-color: $green-shade-1;
+            // transform: scale(.8);
+            // width: 90%;
+            // height: 90%;
+            color: rgb(77, 68, 23);
+            transition: all .6s; 
+          
+
+               
+            }
+
+            &--back {
+
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                
+            backface-visibility: hidden;
+            text-align: left;
+            // box-shadow:  0 10px 20px rgba(#000,.82);
+            transform: scale3d(.8, .8, .8);
+            margin: 0 auto;
+            border-radius: 10px;            
+            background-color:red;
+            transform: scale(.8);
+            // width: 90%;
+            // height: 90%;
+            // color: rgb(77, 68, 23);
+            color: $green-shade-1;
+            transition: all .6s; 
+            transform: rotateY(180deg);
+            // transform: translateY()
+
+               
+            }
+
+            &:hover &--front {
+                transform: rotateY(-180deg);
+                // transform: scale3d(.8, .8, .8);
+            }
+
+            &:hover &--back {
+                transform: rotateY(0);
+                transform: scale3d(.8, .8, .8);
+            }
+
+        
+            
 
             & p {
                 
@@ -200,8 +267,7 @@ img {
                
                
             }
-
-        }
+           
 
     }
 
@@ -222,4 +288,6 @@ img {
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
+}
+
 }
