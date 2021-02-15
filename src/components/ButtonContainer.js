@@ -27,6 +27,7 @@ export default function ButtonContainer({imgRef})
     const fileInput = useRef()
     
     const [gps, setGPS] = React.useState([initialLocationState]) // uses an array of dictionaries 
+    const [labels, setLabels] =  React.useState([])
     const [clicked, setButtonClicked ] = React.useState(false)
     const [gpsHistory, updateGPSHistory] =  React.useState([...gps]) // spread operator only works on iterables        
     const [s3Bucket] = React.useState("deployments-si3mshady")
@@ -61,7 +62,7 @@ export default function ButtonContainer({imgRef})
         
       })
 
-  }, [gps])
+  }, [gps, labels])
 
 
   const analyze_image = (bufferedBase64Data) => {      
@@ -70,7 +71,13 @@ export default function ButtonContainer({imgRef})
     rekognition.detectLabels(params, function(err, data) {
       if (err) console.log(err); // an error occurred
       
-      else     console.log(data);  }
+      else    {
+        const narrowList = data.Labels.slice(0,3)
+        console.log(data)
+        console.log(narrowList)
+        setLabels(narrowList)      
+      
+      } }
 
     
   )
@@ -162,7 +169,10 @@ const sendToS3 = (data) => {
                                 </form>                        
                         </button>
                 </div>   
-                <MiniDisplay gps={gps} />
+                <MiniDisplay 
+                gps={gps}
+                labels={labels}
+                 />
             </div>            
             
             

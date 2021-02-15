@@ -96,6 +96,7 @@ img {
         position: absolute;
         top: 0px;
         left: 0px;
+        width: 100%;
         backface-visibility: hidden;
         text-align: left;
         transform: scale3d(0.8, 0.8, 0.8);
@@ -124,6 +125,7 @@ img {
         transform: rotateY(0);
         transform: scale3d(0.8, 0.8, 0.8); }
       .miniDisplay__container--output p {
+        font-size: 1.8rem;
         padding: 14px;
         margin: 12px; }
     .miniDisplay__container img {

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../index.css';
 
-export default function MiniDisplay({gps}) {
+export default function MiniDisplay({gps,labels}) {
     return (
         <div className="miniDisplay">
                 <div className="miniDisplay__container card">
@@ -22,14 +22,12 @@ export default function MiniDisplay({gps}) {
 
                      <div className="miniDisplay__container--output--back">
                     
-                     {gps.map((location, index) => 
+                     {labels.map((label, index) => 
                             
                             (
                                 <>
-                                    <p key={index}>{`Longitude: ${location.longitude !== null? location.longitude: ""}`}</p>
-                                    <p key={index+1}>{`Latitude: ${location.latitude !== null? location.latitude: ""}`}</p>
-                                    <p key={index+2}>{`Accuracy: ${location.accuracy !== null? location.accuracy: ""}%`}</p> 
-                                        
+                                    <p key={index}>{`${label.Name}: ${label.Confidence}`}</p>
+                                   
                                 </> ))}
                      </div>
                     
