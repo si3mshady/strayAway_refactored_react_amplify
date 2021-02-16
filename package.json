@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "aws-sdk": "^2.843.0",
     "axios": "^0.21.1",
+    "gh-pages": "^3.1.0",
     "jquery": "^3.5.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
@@ -17,7 +18,10 @@
     "react-scripts": "4.0.2",
     "web-vitals": "^1.0.1"
   },
+  "homepage": "https://si3mshady.github.com.io/strayAway_refactored_react_amplify",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

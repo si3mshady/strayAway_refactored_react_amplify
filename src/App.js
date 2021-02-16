@@ -12,3 +12,6 @@ function App() {
 }
 
 export default App;
+
+// how to deploy a reactProject with gh-pages
+//https://www.youtube.com/watch?v=517npPWIb8Q
