@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/si3mshady/strayAway_refactored_react_amplify/static/css/main.8a836a56.chunk.css",
-    "main.js": "/si3mshady/strayAway_refactored_react_amplify/static/js/main.b887acae.chunk.js",
-    "main.js.map": "/si3mshady/strayAway_refactored_react_amplify/static/js/main.b887acae.chunk.js.map",
-    "runtime-main.js": "/si3mshady/strayAway_refactored_react_amplify/static/js/runtime-main.19f3f7eb.js",
-    "runtime-main.js.map": "/si3mshady/strayAway_refactored_react_amplify/static/js/runtime-main.19f3f7eb.js.map",
-    "static/js/2.c77a1edb.chunk.js": "/si3mshady/strayAway_refactored_react_amplify/static/js/2.c77a1edb.chunk.js",
-    "static/js/2.c77a1edb.chunk.js.map": "/si3mshady/strayAway_refactored_react_amplify/static/js/2.c77a1edb.chunk.js.map",
-    "index.html": "/si3mshady/strayAway_refactored_react_amplify/index.html",
-    "static/css/main.8a836a56.chunk.css.map": "/si3mshady/strayAway_refactored_react_amplify/static/css/main.8a836a56.chunk.css.map",
-    "static/js/2.c77a1edb.chunk.js.LICENSE.txt": "/si3mshady/strayAway_refactored_react_amplify/static/js/2.c77a1edb.chunk.js.LICENSE.txt",
-    "static/media/tld.682e269e.png": "/si3mshady/strayAway_refactored_react_amplify/static/media/tld.682e269e.png"
+    "main.css": "/strayAway_refactored_react_amplify/static/css/main.8a836a56.chunk.css",
+    "main.js": "/strayAway_refactored_react_amplify/static/js/main.98470ac7.chunk.js",
+    "main.js.map": "/strayAway_refactored_react_amplify/static/js/main.98470ac7.chunk.js.map",
+    "runtime-main.js": "/strayAway_refactored_react_amplify/static/js/runtime-main.e610ce16.js",
+    "runtime-main.js.map": "/strayAway_refactored_react_amplify/static/js/runtime-main.e610ce16.js.map",
+    "static/js/2.55ec5a1f.chunk.js": "/strayAway_refactored_react_amplify/static/js/2.55ec5a1f.chunk.js",
+    "static/js/2.55ec5a1f.chunk.js.map": "/strayAway_refactored_react_amplify/static/js/2.55ec5a1f.chunk.js.map",
+    "index.html": "/strayAway_refactored_react_amplify/index.html",
+    "static/css/main.8a836a56.chunk.css.map": "/strayAway_refactored_react_amplify/static/css/main.8a836a56.chunk.css.map",
+    "static/js/2.55ec5a1f.chunk.js.LICENSE.txt": "/strayAway_refactored_react_amplify/static/js/2.55ec5a1f.chunk.js.LICENSE.txt",
+    "static/media/tld.682e269e.png": "/strayAway_refactored_react_amplify/static/media/tld.682e269e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.19f3f7eb.js",
-    "static/js/2.c77a1edb.chunk.js",
+    "static/js/runtime-main.e610ce16.js",
+    "static/js/2.55ec5a1f.chunk.js",
     "static/css/main.8a836a56.chunk.css",
-    "static/js/main.b887acae.chunk.js"
+    "static/js/main.98470ac7.chunk.js"
   ]
 }
