@@ -3,7 +3,7 @@ import React from 'react'
 import '../index.css';
 
 export default function MiniDisplay({gps,labels, reverseGeoLocation}) {
-    const [geolocation, resolveGeolocation] = React.useState()
+    
  
     return (
         <div className="miniDisplay">
