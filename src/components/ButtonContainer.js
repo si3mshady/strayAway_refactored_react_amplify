@@ -4,6 +4,7 @@ import $ from 'jquery'
 import Axios from 'axios'
 import MiniDisplay from '../components/MiniDisplay'
 import AWS from 'aws-sdk';
+import ReverseGeocode from 'reverse-geocode';
 
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -28,6 +29,7 @@ export default function ButtonContainer({imgRef})
     
     const [gps, setGPS] = React.useState([initialLocationState]) // uses an array of dictionaries 
     const [labels, setLabels] =  React.useState([])
+    const [reverseGeoLocation, setReverseGeoLocation] =  React.useState({})
     const [clicked, setButtonClicked ] = React.useState(false)
     const [gpsHistory, updateGPSHistory] =  React.useState([...gps]) // spread operator only works on iterables        
     const [s3Bucket] = React.useState("deployments-si3mshady")
@@ -48,7 +50,15 @@ export default function ButtonContainer({imgRef})
 
         
     
-
+  React.useEffect(() => {
+    // const result = ReverseGeocode.lookup(gps.latitude, gps.longitude, 'us')    
+    // setReverseGeoLocation(result)
+    console.log(gps)
+    console.log('Reverse Geocode finished')
+    console.log(gps)
+    setReverseGeoLocation((ReverseGeocode.lookup(gps[0].latitude, gps[0].longitude, 'us')))
+    console.log('Print GPS')
+  },[gps]) 
   React.useEffect(() => { navigator.geolocation.getCurrentPosition(handleGeoLocation)},[clicked])  // useEffect is triggered ONLY when selected pieces of state are updated 
   React.useEffect(() => {
     const url = "https://72zu52q14g.execute-api.us-east-1.amazonaws.com/dev/tracker"
@@ -170,7 +180,7 @@ const sendToS3 = (data) => {
                         </button>
                 </div>   
                 <MiniDisplay 
-                gps={gps}
+                gps={gps} reverseGeoLocation={reverseGeoLocation}
                 labels={labels}
                  />
             </div>            

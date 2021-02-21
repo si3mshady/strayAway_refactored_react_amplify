@@ -1,7 +1,10 @@
+
 import React from 'react'
 import '../index.css';
 
-export default function MiniDisplay({gps,labels}) {
+export default function MiniDisplay({gps,labels, reverseGeoLocation}) {
+    const [geolocation, resolveGeolocation] = React.useState()
+ 
     return (
         <div className="miniDisplay">
                 <div className="miniDisplay__container card">
@@ -13,11 +16,15 @@ export default function MiniDisplay({gps,labels}) {
                             
                             (
                                 <>
-                                    <p key={index}>{`Longitude: ${location.longitude !== null? location.longitude: ""}`}</p>
+                                    <p key={index}>{`Longitude: ${location.longitude !== null? location.longitude: ""}`}</p>                                    
                                     <p key={index+1}>{`Latitude: ${location.latitude !== null? location.latitude: ""}`}</p>
-                                    <p key={index+2}>{`Accuracy: ${location.accuracy !== null? location.accuracy: ""}%`}</p> 
+                                           {console.log(reverseGeoLocation, "BINGO!")}
+                                   
                                         
                                 </> ))}
+                                <p >{`City: ${reverseGeoLocation.city !== null? reverseGeoLocation.city : ""}`}</p> 
+                                    <p >{`State: ${reverseGeoLocation.state !== null? reverseGeoLocation.state : ""}`}</p> 
+                                    <p >{`Zip: ${reverseGeoLocation.zipcode  !== null? reverseGeoLocation.zipcode : ""}`}</p> 
                      </div>
 
                      <div className="miniDisplay__container--output--back">
