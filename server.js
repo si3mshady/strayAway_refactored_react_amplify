@@ -1,19 +1,17 @@
-const express = require('express')
 const { execSync } = require("child_process");
+const express = require('express')
 const app = express()
 const port = 5001
 
-const validate = () => {
-    execSync("node /Users/ellarnol/selenium/app.js");
-}
-
-app.get('/', (req, res) => {
+app.get('/311', (_,res) => {
+    const validate = () => { execSync(`node ${__dirname}/runner.js`);  }    
+    // console.log(__dirname)
     validate()
-  res.send('Hello World!')
+  res.send('contacting Animal Services!')
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`listening at http://localhost:${port}`)
 })
 
 
