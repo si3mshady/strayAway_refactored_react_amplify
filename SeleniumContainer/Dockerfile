@@ -1,19 +1,10 @@
-
-FROM selenium/standalone-chrome as browserAutomation
-
-FROM node
-
+# FROM selenium/standalone-chrome:4.0.0-beta-1-20210215 as automation 
+FROM node:latest
 WORKDIR /app
-
-COPY  . .
-COPY chromedriver  ./
-ENV  SELENIUM_REMOTE_URL="http://localhost:4444/wd/hub" 
-EXPOSE 5900 5001 4444 
+COPY runner.js ./
+COPY server.js ./
+COPY package.json ./
+RUN npm i 
+EXPOSE  888
 
 CMD ["node","server.js"]
-
-
-
-# https://docs.docker.com/develop/develop-images/multistage-build/
-# https://www.npmjs.com/package/selenium-webdriver
-#https://www.selenium.dev/documentation/en/remote_webdriver/remote_webdriver_client/

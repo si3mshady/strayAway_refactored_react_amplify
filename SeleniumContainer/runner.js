@@ -5,9 +5,11 @@ const {Builder, By, Key} = require('selenium-webdriver');
 (async function example() {
   let driver = await new Builder().
   forBrowser('chrome')
-  .usingServer('http://localhost:4444/wd/hub').build() // connecting to docker container with remote driver!!
+  .usingServer('http://selenium:4444/wd/hub').build() // connecting to docker container with remote driver!!
   //docker run -d -p 4444:4444  -v /dev/shm:/dev/shm selenium/standalone-chrome:4.0.0-beta-1-20210215
-  //this is what is required to connect to kubernetes cluster
+  //https://blog.kevinlamping.com/common-selenium-and-webdriverio-error-messages/
+  // THE FIX!  https://www.npmjs.com/package/wdio-selenium-standalone-service
+  
   await driver.manage().setTimeouts( { implicit: 10000 } );
   try {
     await driver.get('https://dallascrm.force.com/public/request/ANIATAGR/location');

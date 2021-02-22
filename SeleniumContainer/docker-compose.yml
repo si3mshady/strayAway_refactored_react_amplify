@@ -1,0 +1,18 @@
+version: "3.7"  # optional since v1.27.0
+services:
+  strayAway:
+    image: si3mshady/strayaway:
+    ports: 
+      - "5000:5000"
+  app:
+    build: .
+    ports:
+      - "888:888"       
+    depends_on:
+      - selenium
+  selenium:
+    image: selenium/standalone-chrome:4.0.0-beta-1-20210215
+    ports:
+      - "4444:4444"
+    expose: 
+      - 4444
