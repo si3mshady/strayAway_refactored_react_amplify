@@ -8,12 +8,11 @@
     "@testing-library/user-event": "^12.1.10",
     "aws-sdk": "^2.843.0",
     "axios": "^0.21.1",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
-    "react-aws-s3": "^1.4.0",
     "react-dom": "^17.0.1",
-    "react-s3-uploader": "^5.0.0",
     "react-scripts": "4.0.2",
     "reverse-geocode": "^1.3.3",
     "selenium-webdriver": "^4.0.0-beta.1",
@@ -24,7 +23,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile:sass": "node-sass src/sass/main.scss src/index.css -w"
+    "compile:sass": "node-sass src/sass/main.scss src/index.css -w",
+    "serve:node": "node server.js"
   },
   "eslintConfig": {
     "extends": [

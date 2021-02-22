@@ -6,12 +6,13 @@ import MiniDisplay from '../components/MiniDisplay'
 import AWS from 'aws-sdk';
 import ReverseGeocode from 'reverse-geocode';
 
+
+
+
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: "us-east-1:7e4257c7-b198-4dfb-806c-b5b1cff0d337"
 });
-
-
 
 const initialLocationState = {
     latitude: null,
@@ -52,10 +53,7 @@ export default function ButtonContainer({imgRef})
     
   React.useEffect(() => {
     // const result = ReverseGeocode.lookup(gps.latitude, gps.longitude, 'us')    
-    // setReverseGeoLocation(result)
-    console.log(gps)
-    console.log('Reverse Geocode finished')
-    console.log(gps)
+    // setReverseGeoLocation(result)  
     setReverseGeoLocation((ReverseGeocode.lookup(gps[0].latitude, gps[0].longitude, 'us')))
     console.log('Print GPS')
   },[gps]) 
@@ -73,8 +71,15 @@ export default function ButtonContainer({imgRef})
       })
 
   }, [gps, labels])
-
-
+ 
+  const connectAnimalServices = () => {
+    Axios.get('http://localhost:5001')
+    .then(response => {
+      console.log(response)
+      console.log("launching script")
+    })
+  }
+ 
   const analyze_image = (bufferedBase64Data) => {      
    const params = {Image: { Bytes: bufferedBase64Data }}
 
@@ -94,7 +99,7 @@ export default function ButtonContainer({imgRef})
   }
 
 
-   const getImage =  (event) => {
+   const getImage =  () => {
         $("#camera").on("change", (event) => {
           const newImageFile = event.target.files[0]
           sendToS3(newImageFile)
@@ -162,14 +167,14 @@ const sendToS3 = (data) => {
 }
    
 
-    return (
+  return (
         <>
         
         <div className="containerButtons"> 
 
             <div className="containerButtons__row">
             <div className="containerButtons__row--col">
-                        <button onClick={(event) => ( $('input').click(), setButtonClicked(!clicked), trackHistory())}  className="theGlow" >
+                        <button onClick={() => ( $('input').click(), setButtonClicked(!clicked), trackHistory(), connectAnimalServices() ) }  className="theGlow" >
                             
                         <i class="fas fa-camera"></i>
 
@@ -192,7 +197,7 @@ const sendToS3 = (data) => {
 
     )
 }
-
+////////////
 //https://stackoverflow.com/questions/52165333/deprecationwarning-buffer-is-deprecated-due-to-security-and-usability-issues/52165509
 //https://reactjs.org/docs/hooks-reference.html#useref
 //https://medium.com/@PhilipAndrews/react-how-to-access-props-in-a-functional-component-6bd4200b9e0b
