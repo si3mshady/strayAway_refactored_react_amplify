@@ -73,7 +73,7 @@ export default function ButtonContainer({imgRef})
   }, [gps, labels])
  
   const connectAnimalServices = () => {
-    Axios.get('http://localhost:5001/311')
+    Axios.get('http://localhost:8080/311')
     .then(response => {
       console.log(response)
       console.log("launching script")
