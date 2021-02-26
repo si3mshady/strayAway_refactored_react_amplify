@@ -13,12 +13,7 @@ app.get('/311', (_,res) => {
       let driver = await new Builder().
       forBrowser('chrome')
       .usingServer('http://selenium:4444/wd/hub').build() // connecting to docker container with remote driver!!
-      //docker run -d -p 4444:4444  -v /dev/shm:/dev/shm selenium/standalone-chrome:4.0.0-beta-1-20210215
-      // 'http://localhost:4444/wd/hub'
-      // connecting to docker container with remote driver!!
-      //docker run -d -p 4444:4444  -v /dev/shm:/dev/shm selenium/standalone-chrome:4.0.0-beta-1-20210215
-      //https://blog.kevinlamping.com/common-selenium-and-webdriverio-error-messages/
-      // THE FIX!  https://www.npmjs.com/package/wdio-selenium-standalone-service
+     
       await driver.manage().setTimeouts( { implicit: 10000 } );
       try {
         await driver.get('https://dallascrm.force.com/public/request/ANIATAGR/location');
@@ -127,3 +122,9 @@ app.listen(port, () => {
 
 
 
+ //docker run -d -p 4444:4444  -v /dev/shm:/dev/shm selenium/standalone-chrome:4.0.0-beta-1-20210215
+      // 'http://localhost:4444/wd/hub'
+      // connecting to docker container with remote driver!!
+      //docker run -d -p 4444:4444  -v /dev/shm:/dev/shm selenium/standalone-chrome:4.0.0-beta-1-20210215
+      //https://blog.kevinlamping.com/common-selenium-and-webdriverio-error-messages/
+      // THE FIX!  https://www.npmjs.com/package/wdio-selenium-standalone-service

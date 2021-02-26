@@ -4,12 +4,11 @@ services:
   strayAway:
     image: si3mshady/strayaway:1.3
     ports: 
-      - "5000:888"
+      - "5000:888"    
               
   server:
     #accepts get request to trigger automation 
-    # //si3mshady/strayaway-server
-    build: .
+    image: si3mshady/strayaway-server:1.3
     ports:
       - "8080:8080"             
   selenium:

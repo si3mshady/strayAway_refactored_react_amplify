@@ -8,6 +8,8 @@ import AWS from 'aws-sdk';
 import ReverseGeocode from 'reverse-geocode';
 
 
+
+
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: "us-east-1:7e4257c7-b198-4dfb-806c-b5b1cff0d337"
@@ -78,10 +80,10 @@ export default function ButtonContainer({imgRef})
     // Axios.get('http://server:32000/311')
     // Axios.get('http://server:8080/311':32000)
     // Axios.get('http://server:8080/311')
-    //  Axios.get('http://localhost:32000/311') 
-     // I should be targeting the service 
-    //  https://stackoverflow.com/questions/60034959/kubernetes-dns-does-not-work-in-react-app
-    Axios.get('/311') 
+     Axios.get('http://localhost:32000/311')
+
+
+    
     .then(response => {
       console.log(response)
       console.log("launching script")
