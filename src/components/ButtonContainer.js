@@ -21,7 +21,6 @@ const initialLocationState = {
   }
 
   
-
 export default function ButtonContainer({imgRef}) 
 
 {
@@ -81,8 +80,7 @@ export default function ButtonContainer({imgRef})
     //  Axios.get('http://localhost:32000/311') 
      // I should be targeting the service 
     //  https://stackoverflow.com/questions/60034959/kubernetes-dns-does-not-work-in-react-app
-    Axios.get('/311') 
-    .then(response => {
+    Axios.get('http://13.56.233.192:8080/311').then(response => {
       console.log(response)
       console.log("launching script")
     })

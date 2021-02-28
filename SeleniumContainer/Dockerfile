@@ -1,10 +1,9 @@
 # FROM selenium/standalone-chrome:4.0.0-beta-1-20210215 as automation 
 FROM node:latest
+
 WORKDIR /app
-RUN curl https://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip -o /usr/local/bin/chromedriver
-RUN chmod +x /usr/local/bin/chromedriver
-COPY server.js ./
-COPY package.json ./
+COPY package* ./
+COPY server* ./
 RUN npm i 
 EXPOSE  8080
 #nodeJs server 
