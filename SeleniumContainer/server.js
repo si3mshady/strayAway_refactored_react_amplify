@@ -1,5 +1,4 @@
 const {Builder, By, Key} = require('selenium-webdriver');
-const { execSync } = require("child_process");
 const express = require('express')
 var cors = require('cors')
 const app = express()
@@ -8,13 +7,13 @@ const port = 8080
 
 
 var corsOptions = {
-  origin: 'http://13.56.233.192:30300',
+  // origin: 'http://13.56.233.192:30300',
+  origin: "*",
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-app.get('/311', cors(corsOptions), (req ,res) => {
-    // const validate = () => { execSync(`node ${__dirname}/runner.js`);  }        // // console.log(__dirname)
-    // validate()
+app.post('/311', cors(corsOptions), (req ,res) => {
+ 
     (async function example() {
       let driver = await new Builder().
       forBrowser('chrome')

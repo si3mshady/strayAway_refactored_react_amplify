@@ -5,6 +5,7 @@
     box-sizing: border-box;
     margin: 0 auto;
     font-family: 'Permanent Marker', cursive;
+    
    
 }
 // Colors
@@ -78,7 +79,7 @@ $gutter-horizontal: 2rem;
         }
 
         &--form {
-            perspective: 1000px;  
+            font-size: .5rem;
             position: absolute;      
             backface-visibility: hidden;
             height: 100%;
@@ -87,15 +88,33 @@ $gutter-horizontal: 2rem;
             left: 9px;
             transform: rotateY(180deg);
             background-color: green;
+            background: cover;
             width: 100%;
-            transition: all .3s;
+            transition: all .3s; 
+            background-color: $green-shade-1;
+            // box-shadow:  0 10px 20px rgba(#000,.8);
 
-        
-            &__input:not(:last-child) {
+            & p, h1,h2,h3 {
+                font-size: .5rem;
+            }
+             & input {
+                  
+                margin: auto;
+                display: inline-block;
                 margin-bottom: 1rem;
+                // margin-left: 1rem;
                 
             }
 
+            & input[type="radio"] {
+                margin-right: .2rem;
+            }
+
+            & label {
+                margin-right: .5rem;
+            }
+
+           
 
 
         }
@@ -304,7 +323,7 @@ img {
             
 
             & p {
-                font-size: 1.8rem;
+                font-size: 1.2rem;
                 padding: 14px;
                 margin: 12px;
 //                 padding: 14px;

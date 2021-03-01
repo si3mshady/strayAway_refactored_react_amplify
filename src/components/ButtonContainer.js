@@ -31,7 +31,7 @@ export default function ButtonContainer({imgRef})
     const [reverseGeoLocation, setReverseGeoLocation] =  React.useState({})
     const [clicked, setButtonClicked ] = React.useState(false)
     const [gpsHistory, updateGPSHistory] =  React.useState([...gps]) // spread operator only works on iterables        
-    const [s3Bucket] = React.useState("deployments-si3mshady")
+    // const [s3Bucket] = React.useState("deployments-si3mshady")
         
    
     var rekognition = new AWS.Rekognition()
@@ -70,13 +70,13 @@ export default function ButtonContainer({imgRef})
 
   }, [gps, labels])
  
-  const connectAnimalServices = () => {
+  // const connectAnimalServices = (formData) => {
  
-    Axios.get('http://13.56.233.192:8080/311').then(response => {
-      console.log(response)
-      console.log("launching script")
-    })
-  }
+  //   Axios.post('http://13.56.233.192:8080/311',formData).then(response => {
+  //     console.log(response)
+  //     console.log("launching script")
+  //   })
+  // }
  
   const analyze_image = (bufferedBase64Data) => {      
    const params = {Image: { Bytes: bufferedBase64Data }}
@@ -172,7 +172,7 @@ const sendToS3 = (data) => {
 
             <div className="containerButtons__row">
             <div className="containerButtons__row--col">
-                        <button onClick={() => ( $('input').click(), setButtonClicked(!clicked), trackHistory(), connectAnimalServices() ) }  className="theGlow" >
+                        <button onClick={() => ( $('input').click(), setButtonClicked(!clicked), trackHistory())}  className="theGlow" >
                             
                         <i class="fas fa-camera"></i>
 
