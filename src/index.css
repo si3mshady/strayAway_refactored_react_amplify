@@ -6,6 +6,7 @@
   font-family: 'Permanent Marker', cursive; }
 
 .mainframe {
+  overflow: auto;
   width: 55vh;
   height: 99vh;
   border-radius: 10px;
@@ -22,20 +23,43 @@
   .mainframe [class="thumbnail-gen"] {
     border-radius: 10px; }
   .mainframe__imageframe {
+    perspective: 1000px;
+    position: relative;
     overflow: auto;
     width: 173px;
     height: 55%;
     background-color: #b3f542;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8); }
     .mainframe__imageframe--image {
+      perspective: 1000px;
+      backface-visibility: hidden;
       width: 95%;
       text-align: center;
       background-color: green;
       padding-top: 20%;
-      height: 100%; }
+      height: 100%;
+      transition: all .3s; }
       .mainframe__imageframe--imageimg {
         width: 100%;
         height: 100%; }
+    .mainframe__imageframe--form {
+      perspective: 1000px;
+      position: absolute;
+      backface-visibility: hidden;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 9px;
+      transform: rotateY(180deg);
+      background-color: green;
+      width: 100%;
+      transition: all .3s; }
+      .mainframe__imageframe--form__input:not(:last-child) {
+        margin-bottom: 1rem; }
+    .mainframe__imageframe:hover .mainframe__imageframe--form {
+      transform: rotateY(0); }
+    .mainframe__imageframe:hover .mainframe__imageframe--image {
+      transform: rotateY(-180deg); }
 
 img {
   width: 100%;

@@ -50,8 +50,8 @@ export default function ButtonContainer({imgRef})
         
     
   React.useEffect(() => {
-    // const result = ReverseGeocode.lookup(gps.latitude, gps.longitude, 'us')    
-    // setReverseGeoLocation(result)  
+    const result = ReverseGeocode.lookup(gps.latitude, gps.longitude, 'us')    
+    setReverseGeoLocation(result)  
     setReverseGeoLocation((ReverseGeocode.lookup(gps[0].latitude, gps[0].longitude, 'us')))
     console.log('Print GPS')
   },[gps]) 
@@ -71,15 +71,7 @@ export default function ButtonContainer({imgRef})
   }, [gps, labels])
  
   const connectAnimalServices = () => {
-    //http://server:32000
-    // Axios.get('http://54.67.117.237:32000/311')
-   
-    // Axios.get('http://server:32000/311')
-    // Axios.get('http://server:8080/311':32000)
-    // Axios.get('http://server:8080/311')
-    //  Axios.get('http://localhost:32000/311') 
-     // I should be targeting the service 
-    //  https://stackoverflow.com/questions/60034959/kubernetes-dns-does-not-work-in-react-app
+ 
     Axios.get('http://13.56.233.192:8080/311').then(response => {
       console.log(response)
       console.log("launching script")
@@ -131,40 +123,40 @@ const sendToS3 = (data) => {
     console.log('RESULT', reader.result)   //Try and send to s3
     
     
-    const bucket = new AWS.S3( { params: {Bucket: s3Bucket} } );
+    // const bucket = new AWS.S3( { params: {Bucket: s3Bucket} } );
 
 
     const buf =  Buffer.from(reader.result.replace(/^data:image\/\w+;base64,/, ""),'base64')
     analyze_image(buf) // 
 
-    var data = {
+    // var data = {
 
-      Key: file.name, 
+    //   Key: file.name, 
     
-      Body: buf,
+    //   Body: buf,
     
-      ContentEncoding: 'base64',
+    //   ContentEncoding: 'base64',
     
-      ContentType: 'image/jpeg'
+    //   ContentType: 'image/jpeg'
     
-    };
+    // };
 
 
-    bucket.putObject(data, function(err, data){
+  //   bucket.putObject(data, function(err, data){
 
-      if (err) { 
+  //     if (err) { 
   
-        console.log(err);
+  //       console.log(err);
   
-        console.log('Error uploading data: ', data); 
+  //       console.log('Error uploading data: ', data); 
   
-      } else {
+  //     } else {
   
-        console.log('succesfully uploaded the image!');
+  //       console.log('succesfully uploaded the image!');
   
-      }
+  //     }
   
-  });
+  // });
 
  }
   reader.readAsDataURL(file);
