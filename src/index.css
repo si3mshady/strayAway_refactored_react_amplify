@@ -43,6 +43,7 @@
         width: 100%;
         height: 100%; }
     .mainframe__imageframe--form {
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.82) !important;
       font-size: .5rem;
       position: absolute;
       backface-visibility: hidden;
@@ -66,6 +67,23 @@
         margin-right: .2rem; }
       .mainframe__imageframe--form label {
         margin-right: .5rem; }
+      .mainframe__imageframe--form button {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.82);
+        width: 15vh;
+        border-radius: 11px;
+        cursor: pointer;
+        background-color: #7c712e;
+        color: greenyellow;
+        margin-bottom: 20%;
+        transition: all .7s; }
+        .mainframe__imageframe--form button:hover .mainframe__imageframe--form button button {
+          font-size: larger;
+          color: gold;
+          outline: 0;
+          border: none; }
+        .mainframe__imageframe--form button:active {
+          transform: translateY(-2px);
+          background-color: gold; }
     .mainframe__imageframe:hover .mainframe__imageframe--form {
       transform: rotateY(0); }
     .mainframe__imageframe:hover .mainframe__imageframe--image {
@@ -162,6 +180,8 @@ img {
         font-size: 1.2rem;
         padding: 14px;
         margin: 12px; }
+      .miniDisplay__container--output button {
+        transform: rotateY(180deg); }
     .miniDisplay__container img {
       width: 100%;
       height: 100%;

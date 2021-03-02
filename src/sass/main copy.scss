@@ -40,7 +40,6 @@ $gutter-horizontal: 2rem;
         border-radius: 10px;
         text-align: center;
         padding: 1%;
-        
     }
     [class="thumbnail-gen"] {
         border-radius: 10px;
@@ -80,7 +79,6 @@ $gutter-horizontal: 2rem;
         }
 
         &--form {
-            box-shadow:  0 0 0 rgba(#000,.82) !important;
             font-size: .5rem;
             position: absolute;      
             backface-visibility: hidden;
@@ -116,8 +114,10 @@ $gutter-horizontal: 2rem;
                 margin-right: .5rem;
             }
             
-            & button {                            
-                             
+            & button {
+                // visibility: hidden;
+              
+                transform: scale3d(1.5, 1.5, 1.5);                    
                 box-shadow:  0 10px 20px rgba(#000,.82);
                 width: 15vh;
                 
@@ -134,7 +134,7 @@ $gutter-horizontal: 2rem;
                     
                     // transform: scale3d(2, 2, 2);
                     // transform: scale(1.8);
-                    // visibility: visible;
+                   
                     font-size: larger;
                     color: gold;
                     outline:0;

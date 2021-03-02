@@ -47,7 +47,7 @@ export default function ButtonContainer({imgRef})
 
     const trackHistory = () => {
             updateGPSHistory(prev => ([ ...prev,...gps])) //create new array with new & previous elements
-            console.log(gpsHistory)
+            // console.log(gpsHistory)
           }
 
         
@@ -63,7 +63,7 @@ export default function ButtonContainer({imgRef})
     const url = "https://72zu52q14g.execute-api.us-east-1.amazonaws.com/dev/tracker"
     Axios.post(url, gpsHistory)
       .then(response => {
-        console.log(response)
+        // console.log(response)
         console.log("updated gpsHistory")
       })
       .catch(error => {

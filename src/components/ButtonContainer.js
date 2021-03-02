@@ -44,7 +44,7 @@ export default function ButtonContainer({imgRef})
 
     const trackHistory = () => {
             updateGPSHistory(prev => ([ ...prev,...gps])) //create new array with new & previous elements
-            console.log(gpsHistory)
+            // console.log(gpsHistory)
           }
 
         

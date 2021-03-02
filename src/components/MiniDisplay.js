@@ -18,7 +18,7 @@ export default function MiniDisplay({gps,labels, reverseGeoLocation}) {
                                 <>
                                     <p key={index}>{`Longitude: ${location.longitude !== null? location.longitude: ""}`}</p>                                    
                                     <p key={index+1}>{`Latitude: ${location.latitude !== null? location.latitude: ""}`}</p>
-                                           {console.log(reverseGeoLocation, "BINGO!")}
+                                           {/* {console.log(reverseGeoLocation, "BINGO!")} */}
                                    
                                         
                                 </> ))}
